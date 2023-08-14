@@ -22,6 +22,12 @@ export default function Home() {
           </div>
 
 
+          <div className='text-center'>
+            <p className='text-[#4047f7] text-2xl'> Subscribe To our Newsletter!</p>
+            <p className='text-gray-400 text-sm'> it's a good time to subscribe and get the latest promotions.</p>
+          </div>
+
+
         </div>
 
 
