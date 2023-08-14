@@ -11,11 +11,18 @@ export default function Home() {
 
 
   const handleSubmitEmail = () => {
-    console.log('handleSubmitEmail', email)
 
     // Email Validation
-    setError(true)
-    setErrorMsg('Invalid Email')
+    const regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    if (!regex.test(String(email).toLowerCase())) {
+      setError(true)
+      setErrorMsg('Invalid Email')
+      return;
+    }
+    setError(false);
+    //Sendgrid API calling here
+
+
 
   }
 
