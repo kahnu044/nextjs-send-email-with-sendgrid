@@ -1,6 +1,24 @@
+"use client"; // This is a client component
+
 import Image from 'next/image'
+import { useState } from 'react'
 
 export default function Home() {
+
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+
+
+  const handleSubmitEmail = () => {
+    console.log('handleSubmitEmail', email)
+
+    // Email Validation
+    setError(true)
+    setErrorMsg('Invalid Email')
+
+  }
+
   return (
     <main className="bg-gray-400 flex min-h-screen items-center justify-center p-24">
 
@@ -26,11 +44,22 @@ export default function Home() {
           <div className='text-center mt-4'>
             <input
               type='text'
-              value='ddd'
+              value={email}
               className='border p-2'
+              onChange={(e) => setEmail(e.target.value)}
             />
-            <button className='bg-orange-400 p-2 text-white mt-4 md:mt-0' >Yes Please </button>
+            <button
+              className='bg-orange-400 p-2 text-white mt-4 md:mt-0'
+              onClick={handleSubmitEmail}
+            >Yes Please </button>
           </div>
+
+
+          {error && errorMsg ? (
+            <>
+              <p className='text-center text-red-500 mt-2'>{errorMsg}</p>
+            </>
+          ) : ''}
 
         </div>
       </div>
